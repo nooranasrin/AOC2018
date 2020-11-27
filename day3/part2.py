@@ -12,13 +12,13 @@ def get_not_intersected_claim_id(grid, claims):
                 intersected_ids.add(claim_id)
             else:
                 all_ids.add(claim_id)
-    return all_ids.difference(intersected_ids)
+    return all_ids.difference(intersected_ids).pop()
 
 
 def main(file_name):
     claims = [claim for claim in open(file_name)]
     grid = get_grid(claims)
-    print(get_not_intersected_claim_id(grid, claims).pop())
+    print(get_not_intersected_claim_id(grid, claims))
 
 
 main('input.txt')
